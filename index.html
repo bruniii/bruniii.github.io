@@ -24,7 +24,7 @@
            alt="sfondo"/>
 
         <div style="position:absolute;top:5%;left:5%;">
-            <a onClick="window.location.reload();">
+            <a onClick= "pauseaudio();">
                 <img src="immagini/refresh.png" 
                 style="width:25px; border:none;"
                 alt="refresh"/>
@@ -44,6 +44,11 @@
     </div>
 
     <script>
+        function pauseaudio() {
+            var sounds = document.getElementsByTagName('audio');
+            for(i=0; i<sounds.length; i++) sounds[i].pause();
+        };
+
         function animalecliccato(text) {
             console.log("cliccato " + text); 
             document.getElementById("nomeanimale").innerHTML = text;
