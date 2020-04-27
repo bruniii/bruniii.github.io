@@ -11,7 +11,7 @@
             { name: 'mucca', width: 100, top: 40, left: 10 }
         ];
 
-        fetch("ListaAnimali.txt")
+        var listaFile = fetch("ListaAnimali.txt")
             .then(function(resp) {
                 return resp.json();
             })
