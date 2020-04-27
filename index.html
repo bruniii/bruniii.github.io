@@ -11,7 +11,7 @@
        alt="sfondo"/>
 
     <div style="position:absolute;top:40%;left:10%;">
-        <a href="#" onclick="document.getElementById('mucca').play()">
+        <a href="#" onclick="animalecliccato('mucca')">
         <img src="immagini/mucca.png" 
             style="position:absolute; width:100px; height:100px; border:none;"
             alt="mucca"/>
@@ -19,7 +19,7 @@
     </div>
 
     <div style="position:absolute;top:25%;left:65%;">
-        <a href="#" onclick="document.getElementById('pecora').play()">
+        <a href="#" onclick="animalecliccato('pecora')">
         <img src="immagini/pecora.png" 
             style="position:absolute; width:50px; height:50px; border:none;"
             alt="pecora"/>
@@ -27,7 +27,7 @@
     </div>
 
     <div style="position:absolute;top:70%;left:80%;">
-        <a href="#" onclick="document.getElementById('gallina').play()">
+        <a href="#" onclick="animalecliccato('gallina')">
         <img src="immagini/gallina.png" 
             style="position:absolute; width:40px; height:40px; border:none;"
             alt="gallina"/>
@@ -35,7 +35,7 @@
     </div>
 
     <div style="position:absolute;top:45%;left:70%;">
-        <a href="#" onclick="document.getElementById('maiale').play()">
+        <a href="#" onclick="animalecliccato('maiale')">
         <img src="immagini/maiale.png" 
             style="position:absolute; width:40px; border:none;"
             alt="maiale"/>
@@ -43,7 +43,7 @@
     </div>
 
     <div style="position:absolute;top:25%;left:31%;">
-        <a href="#" onclick="document.getElementById('asino').play()">
+        <a href="#" onclick="animalecliccato('asino')">
         <img src="immagini/asino.png" 
             style="position:absolute; width:75px; border:none;"
             alt="asino"/>
@@ -51,18 +51,36 @@
     </div>
 
     <div style="position:absolute;top:55%;left:40%;">
-        <a href="#" onclick="document.getElementById('toro').play()">
+        <a href="#" onclick="animalecliccato('toro')">
         <img src="immagini/toro.png" 
             style="position:absolute; width:120px; border:none;"
             alt="toro"/>
         </a>
     </div>
 
-    <div style="position:absolute;top:95%;left:95%;">
+    <div style="position:absolute;top:5%;left:5%;">
         <a onClick="window.location.reload();">
             <img src="immagini/refresh.png" 
             style="position:absolute; width:25px; border:none;"
             alt="refresh"/>
         </a>
     </div>
+
+    <div id="nomeanimale" style="
+                position:absolute;
+                bottom: 0%; left:0%;
+                width:860px;
+                text-align: center;
+                font-size:250%;
+                font-family:verdana;
+                text-transform:capitalize">
+        Clicca un animale
+    </div>
 </div>
+
+<script>
+    function animalecliccato(text) {
+      document.getElementById("nomeanimale").innerHTML = text;
+      document.getElementById(text).play()
+    }
+</script>
