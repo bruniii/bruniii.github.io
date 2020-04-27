@@ -1,0 +1,41 @@
+<audio id="mucca" src="audio/mucca.mp3"></audio>
+<audio id="pecora" src="audio/pecora.mp3"></audio>
+<audio id="gallina" src="audio/gallina.mp3"></audio>
+
+<div style="position:relative; width: 860px; height: 664px;">
+    <img src="immagini/fattoria.png"
+       style="position:absolute; top:0; left:0; border:none;"
+       alt="sfondo"/>
+
+    <div style="position:absolute;top:40%;left:10%;">
+        <a href="#" onclick="document.getElementById('mucca').play()">
+        <img src="immagini/mucca.png" 
+            style="position:absolute; width:100px; height:100px; border:none;"
+            alt="mucca"/>
+        </a>
+    </div>
+
+    <div style="position:absolute;top:25%;left:65%;">
+        <a href="#" onclick="document.getElementById('pecora').play()">
+        <img src="immagini/pecora.png" 
+            style="position:absolute; width:50px; height:50px; border:none;"
+            alt="pecora"/>
+        </a>
+    </div>
+
+    <div style="position:absolute;top:70%;left:80%;">
+        <a href="#" onclick="document.getElementById('gallina').play()">
+        <img src="immagini/gallina.png" 
+            style="position:absolute; width:40px; height:40px; border:none;"
+            alt="gallina"/>
+        </a>
+    </div>
+
+    <div style="position:absolute;top:95%;left:95%;">
+        <a onClick="window.location.reload();">
+            <img src="immagini/refresh.png" 
+            style="position:absolute; width:25px; height:25px; border:none;"
+            alt="refresh"/>
+        </a>
+    </div>
+</div>
