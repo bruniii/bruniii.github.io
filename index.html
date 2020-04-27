@@ -1,88 +1,91 @@
-<audio id="mucca" src="audio/mucca.mp3"></audio>
-<audio id="pecora" src="audio/pecora.mp3"></audio>
-<audio id="gallina" src="audio/gallina.mp3"></audio>
-<audio id="maiale" src="audio/maiale.mp3"></audio>
-<audio id="asino" src="audio/asino.mp3"></audio>
-<audio id="toro" src="audio/toro.mp3"></audio>
+<html lang="en-US">
 
-<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+<head>
+    <script>
+        var lista = [
+            { name: 'maiale', width: 40, top: 45, left: 70 },
+            { name: 'pecora', width: 50, top: 25, left: 65 },
+            { name: 'gallina', width: 40, top: 70, left: 80 },
+            { name: 'asino', width: 75, top: 25, left: 31 },
+            { name: 'toro', width: 120, top: 55, left: 40 },
+            { name: 'mucca', width: 100, top: 40, left: 10 }
+        ];
+    </script>
 
-<div style="position:relative; width: 860px; height: 664px;">
-    <img src="immagini/fattoria.png"
-       style="position:absolute; top:0; left:0; border:none;"
-       alt="sfondo"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fattoria</title>
 
-    <div style="position:absolute;top:40%;left:10%;">
-        <a href="#" onclick="animalecliccato('mucca')">
-        <img src="immagini/mucca.png" 
-            style="position:absolute; width:100px; height:100px; border:none;"
-            alt="mucca"/>
-        </a>
-    </div>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
 
-    <div style="position:absolute;top:25%;left:65%;">
-        <a href="#" onclick="animalecliccato('pecora')">
-        <img src="immagini/pecora.png" 
-            style="position:absolute; width:50px; height:50px; border:none;"
-            alt="pecora"/>
-        </a>
-    </div>
+    <div id='sfondo' style="position:relative; width: 860px; height: 664px;">
+        <img src="immagini/fattoria.png"
+           style="position:absolute; top:0; left:0; border:none;"
+           alt="sfondo"/>
 
-    <div style="position:absolute;top:70%;left:80%;">
-        <a href="#" onclick="animalecliccato('gallina')">
-        <img src="immagini/gallina.png" 
-            style="position:absolute; width:40px; height:40px; border:none;"
-            alt="gallina"/>
-        </a>
-    </div>
+        <div style="position:absolute;top:5%;left:5%;">
+            <a onClick="window.location.reload();">
+                <img src="immagini/refresh.png" 
+                style="width:25px; border:none;"
+                alt="refresh"/>
+            </a>
+        </div>
 
-    <div style="position:absolute;top:45%;left:70%;">
-        <a href="#" onclick="animalecliccato('maiale')">
-        <img src="immagini/maiale.png" 
-            style="position:absolute; width:40px; border:none;"
-            alt="maiale"/>
-        </a>
-    </div>
-
-    <div style="position:absolute;top:25%;left:31%;">
-        <a href="#" onclick="animalecliccato('asino')">
-        <img src="immagini/asino.png" 
-            style="position:absolute; width:75px; border:none;"
-            alt="asino"/>
-        </a>
-    </div>
-
-    <div style="position:absolute;top:55%;left:40%;">
-        <a href="#" onclick="animalecliccato('toro')">
-        <img src="immagini/toro.png" 
-            style="position:absolute; width:120px; border:none;"
-            alt="toro"/>
-        </a>
-    </div>
-
-    <div style="position:absolute;top:5%;left:5%;">
-        <a onClick="window.location.reload();">
-            <img src="immagini/refresh.png" 
-            style="position:absolute; width:25px; border:none;"
-            alt="refresh"/>
-        </a>
-    </div>
-
-    <div id="nomeanimale" style="
-                position:absolute;
-                bottom: 0%; left:0%;
-                width:860px;
-                text-align: center;
-                font-family: 'Bangers';
-                font-size: 40px;
-                color:ForestGreen">
+        <div id="nomeanimale" style="
+           position:absolute;
+           bottom: 0%; left:0%;
+           width:860px;
+           text-align: center;
+           font-family: 'Bangers';
+           font-size: 40px;
+           color:ForestGreen">
         Clicca su un animale
+        </div>
     </div>
-</div>
 
-<script>
-    function animalecliccato(text) {
-      document.getElementById("nomeanimale").innerHTML = text;
-      document.getElementById(text).play()
-    }
-</script>
+    <script>
+        function animalecliccato(text) {
+            console.log("cliccato " + text); 
+            document.getElementById("nomeanimale").innerHTML = text;
+            document.getElementById("audio-" + text).play()
+        }
+
+        function createanimale(animale){
+
+            var div = document.createElement('div');
+            div.id = animale.name;
+            div.style.position = 'absolute';
+            div.style.top = animale.top + "%";
+            div.style.left = animale.left + "%";
+               
+            var a = document.createElement('a');
+            a.href = "#";
+            a.id = "fig-" + animale.name;
+            a.onclick = function() {animalecliccato(animale.name)}
+            
+            var img = document.createElement('img');
+            img.src="immagini/" + animale.name + ".png";
+            img.style.width = animale.width + "px";
+            img.style.border = "none";
+            img.alt = animale.name;
+
+            a.appendChild(img)
+            div.appendChild(a)
+            document.getElementById('sfondo').appendChild(div);
+
+            var verso = document.createElement('audio');
+            verso.id = "audio-" + animale.name; 
+            verso.src = "audio/" + animale.name + ".mp3";
+            document.body.appendChild(verso);
+        }
+        
+        for (i=0; i<lista.length; i++){
+            createanimale(lista[i]);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
