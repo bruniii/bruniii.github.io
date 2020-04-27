@@ -10,6 +10,14 @@
             { name: 'toro', width: 120, top: 55, left: 40 },
             { name: 'mucca', width: 100, top: 40, left: 10 }
         ];
+
+        fetch("ListaAnimali.txt")
+            .then(function(resp) {
+                return resp.json();
+            })
+            .then(function(data) {
+                console.log(data)
+        });
     </script>
 
     <meta charset="UTF-8">
