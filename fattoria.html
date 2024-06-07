@@ -2,13 +2,14 @@
 
 <head>
     <script>
+        // CVA: https://stackoverflow.com/questions/55297868/jinja2-access-a-list-of-dict-in-javascript
         var lista = [
-            { name: 'maiale', width: 40, top: 45, left: 70, verso: 'grugnire' },
-            { name: 'pecora', width: 50, top: 25, left: 65, verso: 'belare' },
-            { name: 'gallina', width: 40, top: 70, left: 80, verso: 'chiocciare' },
-            { name: 'asino', width: 75, top: 25, left: 31, verso: 'ragliare' },
-            { name: 'toro', width: 120, top: 55, left: 40, verso: 'muggire' },
-            { name: 'mucca', width: 100, top: 40, left: 10, verso: 'muggire' }
+            { name: 'maiale', width: 40, top: 45, left: 70, colore:'green', strain: Math.random(), temperature: Math.random() },
+            { name: 'pecora', width: 50, top: 25, left: 65, colore:'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: 'gallina', width: 40, top: 70, left: 80, colore:'red', strain: Math.random(), temperature: Math.random() },
+            { name: 'asino', width: 75, top: 25, left: 31, colore:'red', strain: Math.random(), temperature: Math.random() },
+            { name: 'toro', width: 120, top: 55, left: 40, colore:'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: 'mucca', width: 100, top: 40, left: 10, colore:'green', strain: Math.random(), temperature: Math.random() }
         ];
     </script>
 
@@ -17,9 +18,9 @@
     <title>Fattoria</title>
 
     <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style>
+    </style>
 
     <div id='sfondo' style="position:relative; width: 860px; height: 664px;">
         <img src="immagini/fattoria.png"
@@ -77,12 +78,6 @@
             img.style.border = "none";
             img.alt = animale.name;
 
-            // bootstrap popover:
-            img.setAttribute('data-toggle', 'popover');
-            img.setAttribute('title', animale.name);
-            img.setAttribute('data-content', animale.verso);
-            img.setAttribute('data-trigger', 'hover');
-
             a.appendChild(img)
             div.appendChild(a)
             document.getElementById('sfondo').appendChild(div);
@@ -97,10 +92,6 @@
             createanimale(lista[i]);
         }
 
-        // Inizializza i popover di Bootstrap dopo che tutti gli elementi sono stati creati
-        $(document).ready(function() {
-            $('[data-toggle="popover"]').popover();
-});
     </script>
 </head>
 
