@@ -69,6 +69,11 @@
             background-color: #f7f7f7;
             border-bottom: 1px solid #ebebeb;
             border-radius: 5px 5px 0 0;
+            color: #333;
+        }
+
+        .popover-content {
+            color: #333;
         }
 
         #ponte {
@@ -188,6 +193,9 @@
             a.setAttribute('data-content', 'Strain: ' + PDI.strain.toFixed(2) + 'με' + '<br/>' + 'ΔT: ' + PDI.temperature.toFixed(2) + '°C');
             a.setAttribute('data-trigger', 'hover');
             a.setAttribute('data-html', "true");
+            if (PDI.left[position_index] >= 50) {
+                a.setAttribute('data-placement','left');
+            }
 
             div.appendChild(a);
             document.getElementById('ponte').appendChild(div);
