@@ -98,7 +98,7 @@
 
 <body>
     <div id='ponte'>
-        <img id='img-ponte' src="immagini/ponte_dx.png" alt="ponte" />
+        <img id='img-ponte' src="immagini/ponte_dx_freccia.png" alt="ponte" />
         <div style="position:absolute;top:80%;left:30px;z-index:4;">
             <a data-toggle="tooltip" data-placement="top" title="Click to flip view" onClick="flipPonte();">
                 <img src="immagini/flip.png" style="width:4vw; border:none;" alt="refresh" />
@@ -205,7 +205,7 @@
         }
 
         function drawPonte() {
-            var imgPonte = document.getElementById("img-ponte").src = "immagini/ponte_" + lato_in_use + ".png";
+            var imgPonte = document.getElementById("img-ponte").src = "immagini/ponte_" + lato_in_use + "_freccia.png";
             document.getElementById("lato-label").innerHTML = "lato " + lato_in_use;
 
             for (var i = 0; i < lista.length; i++) {
