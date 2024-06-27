@@ -22,7 +22,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CVA Ponte Introd</title>
+    <title>Pontecondotte Introd CVA</title>
 
     <!-- <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -109,47 +109,50 @@
     </div>
 
     <div class="container">
-        <div id="PDIselezionato" class="col" style="text-align: center;">
-            Clicca su un PDI
-        </div>
-        <div>
-            Fingerprint:
-            <input id="datetime-fingerprint" class="form-control bg-white datepicker"
-                placeholder="Select fingerprint date & time...">
-            <script>
-                flatpickr('#datetime-fingerprint', {
-                    //mode:"range",
-                    dateFormat: "Y/m/d H:i",
-                    enableTime: true,
-                    time_24hr: true,
-                    defaultDate: '2023/11/29 22:00',
-                    minuteIncrement: 30,
-                    onClose: function (dataObj, dataStr) {
-                        var timestamp_ms = new Date(dataStr).getTime()
-                        console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
-                    },
-                });
-            </script>
-        </div>
-        <div>
-            Range of measures:
-            <input id="datetime-range" class="form-control bg-white datepicker" data-date-format="Y/m/d"
-                placeholder="Select range to show...">
-            <script>
-                const defaultDate = moment().add(-14, 'days').toDate();
-                flatpickr('#datetime-range', {
-                    mode: "range",
-                    enableTime: false,
-                    defaultDate: [defaultDate, 'today'],
-                    time_24hr: true,
-                    minuteIncrement: 30,
-                    onClose: function (dataObj, dataStr) { console.info('data range: ' + dataObj) },
-                });
-            </script>
-        </div>
-        <div>
-            Modifiche vengono intercettate e, per ora, stampate nella console tramite la callback associata.
-        </div>
+            <div id="Meteo" style="text-align: center;">
+                <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/363/ffffff/808080/5e5e5e/ffffff/it" width=187 height=268 frameborder="0"></iframe><br/>
+            </div>
+            <div id="PDIselezionato" style="text-align: center;">
+                Clicca su un PDI
+            </div>
+            <div>
+                Fingerprint:
+                <input id="datetime-fingerprint" class="form-control bg-white datepicker"
+                    placeholder="Select fingerprint date & time...">
+                <script>
+                    flatpickr('#datetime-fingerprint', {
+                        //mode:"range",
+                        dateFormat: "Y/m/d H:i",
+                        enableTime: true,
+                        time_24hr: true,
+                        defaultDate: '2023/11/29 22:00',
+                        minuteIncrement: 30,
+                        onClose: function (dataObj, dataStr) {
+                            var timestamp_ms = new Date(dataStr).getTime()
+                            console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
+                        },
+                    });
+                </script>
+            </div>
+            <div>
+                Range of measures:
+                <input id="datetime-range" class="form-control bg-white datepicker" data-date-format="Y/m/d"
+                    placeholder="Select range to show...">
+                <script>
+                    const defaultDate = moment().add(-14, 'days').toDate();
+                    flatpickr('#datetime-range', {
+                        mode: "range",
+                        enableTime: false,
+                        defaultDate: [defaultDate, 'today'],
+                        time_24hr: true,
+                        minuteIncrement: 30,
+                        onClose: function (dataObj, dataStr) { console.info('data range: ' + dataObj) },
+                    });
+                </script>
+            </div>
+            <div>
+                Modifiche vengono intercettate e, per ora, stampate nella console tramite la callback associata.
+            </div>
     </div>
 
     <script>
