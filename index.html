@@ -7,13 +7,13 @@
         var lista = [
             { name: '1DI_a', top: [22, 22], left: [9.5, 11.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '1DI_b', top: [62, 62], left: [9.5, 12], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
-            { name: '2DI', top: [74, 74], left: [15, 17.5], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
-            { name: '3DI', top: [36, 36], left: [27, 29], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
-            { name: '4DI', top: [18, 18], left: [37, 38], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
-            { name: '5DI', top: [11, 11], left: [49, 49], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '6DI', top: [18, 20], left: [61, 61], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '7DI', top: [38, 42], left: [72, 72], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '8DI', top: [72, 72], left: [83, 81], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '2DI', top: [60, 60], left: [15, 17.5], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '3DI', top: [28, 28], left: [27, 29], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '4DI', top: [15, 15], left: [37, 38], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: '5DI', top: [9, 9], left: [49, 49], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '6DI', top: [15, 15], left: [61, 61], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '7DI', top: [32, 32], left: [72, 72], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '8DI', top: [60, 60], left: [83, 81], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9DI_a', top: [62, 62], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9DI_b', top: [22, 22], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9SI_b', top: [22, 22], left: [87.25, 86.5], view: 'sx', colore: 'red', strain: Math.random(), temperature: Math.random() },
@@ -94,6 +94,7 @@
             overflow: auto;
             display: inline-block;
         }
+
         .nav-tabs {
             margin-bottom: 0px;
         }
@@ -109,6 +110,18 @@
 
         .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
             background-color: #ba5c04 !important;
+            border-color: #7a3d04 !important;
+        }
+
+        .bi {
+            vertical-align: -.25em;
+        }
+
+        div.horizontalgap {
+            float: left;
+            overflow: hidden;
+            height: 1px;
+            width: 0px;
         }
     </style>
 
@@ -126,12 +139,16 @@
         <table class="table table-borderless" style="width: 100%;">
             <tbody>
                 <tr>
-                    <td style="max-width: 150px; word-wrap: break-word;" class="align-bottom"><img src="immagini/cva.png" height="80"></td>
-                    <td class="d-none d-md-table-cell align-bottom">powered by:</td>
-                    <td class="d-none d-md-table-cell align-bottom"><img src="immagini/fundation_poli.png" height="40"></td>
-                    <td class="d-none d-md-table-cell align-bottom"><a href="mailto:info@cohaerentia.com"><img src="immagini/cohae_diagnostic.png" height="40"></a></td>
-                    <td class="text-end align-bottom"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Introd CVA Sensors"><img src="immagini/sensor.png" height="50"></a></td>
-                    <td class="text-end align-bottom"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Settings"><i class="bi bi-gear" style="color: #003f6b; font-size: 42px;"></i></a></td>
+                    <td class="align-bottom"><img src="immagini/cva.png" height="80"></td>
+                    <td class="d-none d-md-table-cell align-bottom">
+                        <div style="margin-right: 2em; display:inline;">powered by:</div>                        
+                        <div style="margin-right: 2em; display:inline;"><img src="immagini/fundation_poli.png" height="40"></div>
+                        <div style="display:inline;"><a href="mailto:info@cohaerentia.com"><img src="immagini/cohae_diagnostic.png" height="40"></a></div>
+                    </td>
+                    <td class="text-end align-bottom">
+                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Introd CVA Sensors"><img src="immagini/sensor.png" height="50"></a></div>
+                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Settings"><i class="bi bi-gear" style="color: #003f6b; font-size: 42px;"></i></a></div>
+                    </td>
                 </tr>
                 <!-- Aggiungi altre righe qui -->
             </tbody>
@@ -252,17 +269,17 @@
                         <tr>
                             <th scope="col">Time</th>
                             <th scope="col">PDI</th>
-                            <th scope="col">Strain</th>
-                            <th scope="col">Temp °C</th>
+                            <th scope="col">Strain (με)</th>
+                            <th scope="col">Temp (°C)</th>
                             <th scope="col">Prediction</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <td scope="row">2024-008-10 10:34</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>1DI_b</td>
+                        <td>123</td>
+                        <td>34</td>
                         <td>3.14</td>
                         </tr>
                         <tr>
