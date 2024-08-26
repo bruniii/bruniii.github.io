@@ -7,13 +7,13 @@
         var lista = [
             { name: '1DI_a', top: [22, 22], left: [9.5, 11.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '1DI_b', top: [62, 62], left: [9.5, 12], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
-            { name: '2DI', top: [60, 60], left: [15, 17.5], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
-            { name: '3DI', top: [28, 28], left: [27, 29], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
-            { name: '4DI', top: [15, 15], left: [37, 38], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
-            { name: '5DI', top: [9, 9], left: [49, 49], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '6DI', top: [15, 15], left: [61, 61], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '7DI', top: [32, 32], left: [72, 72], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
-            { name: '8DI', top: [60, 60], left: [83, 81], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '2DI', top: [74, 74], left: [15, 17.5], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '3DI', top: [36, 36], left: [27, 29], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '4DI', top: [18, 18], left: [37, 38], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: '5DI', top: [11, 11], left: [49, 49], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '6DI', top: [18, 20], left: [61, 61], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '7DI', top: [38, 42], left: [72, 72], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '8DI', top: [72, 72], left: [83, 81], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9DI_a', top: [62, 62], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9DI_b', top: [22, 22], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
             { name: '9SI_b', top: [22, 22], left: [87.25, 86.5], view: 'sx', colore: 'red', strain: Math.random(), temperature: Math.random() },
@@ -160,15 +160,15 @@
           
 
     <h1>Pontecondotte di Introd</h1>
-    <h3>Monitoring Dashboard</h3>
+    <h3>Dashboard di monitoraggio sensore in fibra ottica</h3>
     <div id="'last-received-text">
-        Last received measure: 2024-008-10 10:34:00
+        Ultima misura ricevuta: 2024-008-10 10:34:00
     </div>
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-9" style="position: relative;">
                 <div id='ponte'>
                     <img id='img-ponte' class="img-responsive" style="width: 100%;" src="immagini/ponte_dx_freccia.png" alt="ponte" />
-                    <div style="position:relative;top:80%;left:30px;z-index:4;">
+                    <div style="position:absolute;top:80%;left:30px;z-index:4;max-width:4vw">
                         <a data-toggle="tooltip" data-placement="top" title="Click to flip view" onClick="flipPonte();">
                             <img src="immagini/flip.png" class="img-responsive" style="width:4vw; border:none;" alt="refresh" />
                         </a>
@@ -176,35 +176,23 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h4>Legend</h4>
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#red">🔴</a></li>
-                    <li><a data-toggle="tab" href="#yellow">🟡</a></li>
-                    <li><a data-toggle="tab" href="#green">🟢</a></li>
-                    <li><a data-toggle="tab" href="#arrow">⬇️</a></li>
-                  </ul>
-                  
-                  <div class="tab-content">
-                    <div id="red" class="tab-pane fade in active">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ante nisl, fermentum eget venenatis quis, interdum ut risus. Morbi suscipit nec tellus quis semper.</p>
-                    </div>
-                    <div id="yellow" class="tab-pane fade">
-                      <p>Some content in menu 1.</p>
-                    </div>
-                    <div id="green" class="tab-pane fade">
-                      <p>Some content in menu 2.</p>
-                    </div>
-                    <div id="arrow" class="tab-pane fade">
-                        <p>Some content in menu 2.</p>
-                      </div>
-                  </div>
+                <h4>Legenda</h4>
+                <ul class="list-unstyled">
+                    <li>🟢 Valore conforme.</li>
+                    <li>🟡 Valore anomalo: strain inferiore ai valori previsti.</li>
+                    <li>🔴 Valore anomalo: strain superiore ai valori previsti</li>
+                    <li>⬇️ Direzione acqua torrente.</li>
+                 </ul>
+                
+                
+                
 
                   <div class="row">
                     <div class="col-lg-7">
                         <h4 style="margin-top:15px;">Fingerprint</h4>
-                        <p>Select a fingerprint as a reference. The closest available will be loaded.</p>
+                        <p>Seleziona una misura passata come riferimento; verrà caricata la misura temporalmente più vicina.</p>
                         <input id="datetime-fingerprint" class="form-control bg-white datepicker"
-                            placeholder="Select fingerprint date & time...">
+                            placeholder="Seleziona fingerprint...">
                             <script>
                                 flatpickr('#datetime-fingerprint', {
                                     //mode:"range",
@@ -216,17 +204,17 @@
                                     onClose: function (dataObj, dataStr) {
                                         var timestamp_ms = new Date(dataStr).getTime()
                                         console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
-                                        document.getElementById("FingerprintSelected").innerHTML = 'Selected: ' + dataObj
+                                        document.getElementById("FingerprintSelected").innerHTML = 'Misura selezionata: ' + dataObj
                                     },
                                 });
                             </script>
 
                             <div id="FingerprintSelected" style="text-align: center;">
-                                ..select a fingerprint..
+                                ..seleziona un fingerprint..
                             </div>
                     </div>
                     <div class="col-md-5">
-                        <h4 style="margin-top:15px;">Current weather</h4>
+                        <h4 style="margin-top:15px;">Meteo attuale</h4>
                         <div id="Meteo" style="text-align: center;">
                             <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/363/ffffff/808080/5e5e5e/ffffff/it" width=187 height=240 frameborder="0"></iframe><br/>
                         </div>
@@ -237,10 +225,10 @@
         </div>
         <div class="row">
             <div class="col-lg-9">
-                <h4>Historical trends</h4>
-                <p>Click a PDI in the bridge picture to update the plots below. Select a date to change the time range visualized.</p>
+                <h4>Trend storici</h4>
+                <p>Seleziona un PDI dall'immagine del ponte per aggiornare i grafici sotto. Seleziona una data per cambiare l'intervallo temporale visualizzato.</p>
                 <input id="datetime-plot" class="form-control bg-white datepicker"
-                    placeholder="Select timestamp...">
+                    placeholder="Seleziona un timestamp...">
                     <script>
                         flatpickr('#datetime-plot', {
                             //mode:"range",
@@ -261,13 +249,13 @@
                 </p>
             </div>
             <div class="col-md-3">
-                <h4>Event list</h4>
-                <p>Click a PDI in the bridge picture to filter the table.</p>
+                <h4>Lista eventi</h4>
+                <p>Seleziona un PDI dall'immagine del ponte per filtrare la tabella.</p>
                 <div class="table-wrapper">
                 <table class="table table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Time</th>
+                            <th scope="col">Timestamp</th>
                             <th scope="col">PDI</th>
                             <th scope="col">Strain (με)</th>
                             <th scope="col">Temp (°C)</th>
@@ -276,7 +264,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                        <td scope="row">2024-008-10 10:34</th>
+                        <td scope="row">2024-08-10 10:34</th>
                         <td>1DI_b</td>
                         <td>123</td>
                         <td>34</td>
@@ -354,7 +342,7 @@
                     </tbody>
                 </table>
                 </div>
-                <p><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Clear filter</button></p>
+                <p><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Rimuovi filtro</button></p>
             </div>
         </div>
     </div>
