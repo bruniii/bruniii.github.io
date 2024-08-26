@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <script>
+        var lista = [
+            { name: '1DI_a', top: [22, 22], left: [9.5, 11.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '1DI_b', top: [62, 62], left: [9.5, 12], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: '2DI', top: [74, 74], left: [15, 17.5], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '3DI', top: [36, 36], left: [27, 29], view: 'dx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+            { name: '4DI', top: [18, 18], left: [37, 38], view: 'dx', colore: 'yellow', strain: Math.random(), temperature: Math.random() },
+            { name: '5DI', top: [11, 11], left: [49, 49], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '6DI', top: [18, 20], left: [61, 61], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '7DI', top: [38, 42], left: [72, 72], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '8DI', top: [72, 72], left: [83, 81], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '9DI_a', top: [62, 62], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '9DI_b', top: [22, 22], left: [88.5, 85.75], view: 'dx', colore: 'green', strain: Math.random(), temperature: Math.random() },
+            { name: '9SI_b', top: [22, 22], left: [87.25, 86.5], view: 'sx', colore: 'red', strain: Math.random(), temperature: Math.random() },
+        ];
+        var colori = { green: '🟢', red: '🔴', yellow: '🟡' }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontecondotte Introd CVA</title>
+
+    <!-- <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+
+    <style>
+
+        @media (prefers-color-scheme: light) {
+        body {
+            background: #FFF;
+            color: #333;
+        }
+        }
+        @media (prefers-color-scheme: dark) {
+        body {
+            background: #333;
+            color: #FFF;
+        }
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .popover {
+            max-width: 500px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .popover-title {
+            padding: 8px 14px;
+            margin: 0;
+            font-size: 24px;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #ebebeb;
+            border-radius: 5px 5px 0 0;
+            color: #333;
+        }
+
+        .popover-content {
+            color: #333;
+        }
+
+        #ponte {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        #img-ponte {
+            width: 100%;
+            height: auto;
+            border: none;
+            z-index: 2;
+        }
+
+        .pdi {
+            position: absolute;
+            font-size: 2vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='ponte'>
+        <img id='img-ponte' src="immagini/ponte_dx_freccia.png" alt="ponte" />
+        <div style="position:absolute;top:80%;left:30px;z-index:4;">
+            <a data-toggle="tooltip" data-placement="top" title="Click to flip view" onClick="flipPonte();">
+                <img src="immagini/flip.png" style="width:4vw; border:none;" alt="refresh" />
+            </a>
+        </div>
+        <div id='lato-label'
+            style="font-size:24px; text-align:center; position:absolute; top:65%; left:46%; z-index:2;">
+        </div>
+    </div>
+
+    <div class="container">
+            <div id="Meteo" style="text-align: center;">
+                <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/363/ffffff/808080/5e5e5e/ffffff/it" width=187 height=268 frameborder="0"></iframe><br/>
+            </div>
+            <div id="PDIselezionato" style="text-align: center;">
+                Clicca su un PDI
+            </div>
+            <div>
+                Fingerprint:
+                <input id="datetime-fingerprint" class="form-control bg-white datepicker"
+                    placeholder="Select fingerprint date & time...">
+                <script>
+                    flatpickr('#datetime-fingerprint', {
+                        //mode:"range",
+                        dateFormat: "Y/m/d H:i",
+                        enableTime: true,
+                        time_24hr: true,
+                        defaultDate: '2023/11/29 22:00',
+                        minuteIncrement: 30,
+                        onClose: function (dataObj, dataStr) {
+                            var timestamp_ms = new Date(dataStr).getTime()
+                            console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
+                        },
+                    });
+                </script>
+            </div>
+            <div>
+                Range of measures:
+                <input id="datetime-range" class="form-control bg-white datepicker" data-date-format="Y/m/d"
+                    placeholder="Select range to show...">
+                <script>
+                    const defaultDate = moment().add(-14, 'days').toDate();
+                    flatpickr('#datetime-range', {
+                        mode: "range",
+                        enableTime: false,
+                        defaultDate: [defaultDate, 'today'],
+                        time_24hr: true,
+                        minuteIncrement: 30,
+                        onClose: function (dataObj, dataStr) { console.info('data range: ' + dataObj) },
+                    });
+                </script>
+            </div>
+            <div>
+                Modifiche vengono intercettate e, per ora, stampate nella console tramite la callback associata.
+            </div>
+    </div>
+
+ 
+    <script>
+        var lato_in_use = 'dx';
+
+        function PDIcliccato(text) {
+            console.info("cliccato " + text);
+            document.getElementById("PDIselezionato").innerHTML = text;
+        }
+
+        function createPDI(PDI, secondoPiano) {
+            var opacity = 1;
+            var z_index = 3;
+            var position_index = 0;
+            if (secondoPiano) {
+                opacity = 0.5;
+                z_index = 1;
+                position_index = 1;
+            }
+            try {
+                document.getElementById(PDI.name).remove();
+            } catch (TypeError) { }
+
+            var div = document.createElement('div');
+            div.id = PDI.name;
+            div.className = 'pdi';
+            div.style.top = PDI.top[position_index] + "%";
+            div.style.left = PDI.left[position_index] + "%";
+            div.style.zIndex = z_index;
+            div.style.opacity = opacity;
+
+            var a = document.createElement('a');
+            a.href = "#";
+            a.id = "semaforo-" + PDI.name;
+            a.onclick = function () { PDIcliccato(PDI.name) };
+            a.text = colori[PDI.colore];
+            a.style.zIndex = 3;
+
+            a.setAttribute('data-toggle', 'popover');
+            a.setAttribute('title', PDI.name);
+            a.setAttribute('data-content', 'Strain: ' + PDI.strain.toFixed(2) + 'με' + '<br/>' + 'ΔT: ' + PDI.temperature.toFixed(2) + '°C');
+            a.setAttribute('data-trigger', 'hover');
+            a.setAttribute('data-html', "true");
+            if (PDI.left[position_index] >= 50) {
+                a.setAttribute('data-placement','left');
+            }
+
+            div.appendChild(a);
+            document.getElementById('ponte').appendChild(div);
+        }
+
+        function drawPonte() {
+            var imgPonte = document.getElementById("img-ponte").src = "immagini/ponte_" + lato_in_use + "_freccia.png";
+            document.getElementById("lato-label").innerHTML = "lato " + lato_in_use;
+
+            for (var i = 0; i < lista.length; i++) {
+                if (lista[i].view === lato_in_use) {
+                    createPDI(lista[i], false);
+                } else {
+                    createPDI(lista[i], true);
+                }
+            }
+
+            $(document).ready(function () {
+                $('[data-toggle="popover"]').popover({ container: 'body' });
+            });
+        }
+
+        function flipPonte() {
+            if (lato_in_use === 'sx') {
+                lato_in_use = 'dx';
+            } else if (lato_in_use === 'dx') {
+                lato_in_use = 'sx';
+            }
+            drawPonte()
+        }
+
+        drawPonte();
+
+
+
+        window.onresize = function () {
+            drawPonte();
+        };
+
+
+    </script>
+</body>
+
+</html>
