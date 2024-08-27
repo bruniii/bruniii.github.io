@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
 
     <script>
@@ -22,9 +22,7 @@
     </script>
 
     <!-- Bootstrap CSS -->
-    <link href=
-    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.css"
-            rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.css" rel="stylesheet">
     <!-- <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -36,7 +34,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 
     <style>
-
         a:link {
             text-decoration: none;
         }
@@ -90,7 +87,7 @@
         }
 
         .table-wrapper {
-            max-height:400px;
+            max-height: 400px;
             overflow: auto;
             display: inline-block;
         }
@@ -108,7 +105,10 @@
             font-weight: bold !important;
         }
 
-        .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+        .btn-primary,
+        .btn-primary:hover,
+        .btn-primary:active,
+        .btn-primary:visited {
             background-color: #ba5c04 !important;
             border-color: #7a3d04 !important;
         }
@@ -127,12 +127,11 @@
 
 
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introd Bridge Dashboard</title>
 
 </head>
- 
+
 <body>
 
     <div class="container-fluid">
@@ -141,36 +140,45 @@
                 <tr>
                     <td class="align-bottom"><img src="immagini/cva.png" height="80"></td>
                     <td class="d-none d-md-table-cell align-bottom">
-                        <div style="margin-right: 2em; display:inline;">sviluppato da:</div>                        
-                        <div style="margin-right: 2em; display:inline;"><img src="immagini/fundation_poli.png" height="40"></div>
-                        <div style="display:inline;"><a href="mailto:info@cohaerentia.com"><img src="immagini/cohae_diagnostic.png" height="40"></a></div>
+                        <div style="margin-right: 2em; display:inline;">sviluppato da:</div>
+                        <div style="margin-right: 2em; display:inline;"><img src="immagini/fundation_poli.png"
+                                height="40"></div>
+                        <div style="display:inline;"><a href="mailto:info@cohaerentia.com"><img
+                                    src="immagini/cohae_diagnostic.png" height="40"></a></div>
                     </td>
                     <td class="text-end align-bottom">
-                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Introd CVA Sensors"><img src="immagini/sensor.png" height="50"></a></div>
-                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details" target="_blank" title="Settings"><i class="bi bi-gear" style="color: #003f6b; font-size: 42px;"></i></a></div>
+                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details"
+                                target="_blank" title="Introd CVA Sensors"><img src="immagini/sensor.png"
+                                    height="50"></a></div>
+                        <div style="margin-right: 2em; display:inline;"><a href="https://movedeck.herokuapp.com/details"
+                                target="_blank" title="Settings"><i class="bi bi-gear"
+                                    style="color: #003f6b; font-size: 42px;"></i></a></div>
                     </td>
                 </tr>
                 <!-- Aggiungi altre righe qui -->
             </tbody>
         </table>
-    </div>  
+    </div>
 
     <div class="mx-5">
 
-          
 
-    <h1>Pontecondotte di Introd</h1>
-    <h3>Dashboard di monitoraggio sensore in fibra ottica</h3>
-    <div id="'last-received-text">
-        Ultima misura ricevuta: 2024-008-10 10:34:00
-    </div>
+
+        <h1>Pontecondotte di Introd</h1>
+        <h3>Dashboard di monitoraggio sensore in fibra ottica</h3>
+        <div id="'last-received-text">
+            Ultima misura ricevuta: 2024-008-10 10:34:00
+        </div>
         <div class="row">
             <div class="col-lg-9" style="position: relative;">
                 <div id='ponte'>
-                    <img id='img-ponte' class="img-responsive" style="width: 100%;" src="immagini/ponte_dx_freccia.png" alt="ponte" />
+                    <img id='img-ponte' class="img-responsive" style="width: 100%;" src="immagini/ponte_dx_freccia.png"
+                        alt="ponte" />
                     <div style="position:absolute;top:80%;left:30px;z-index:4;max-width:4vw">
-                        <a data-toggle="tooltip" data-placement="top" title="Click to flip view" onClick="flipPonte();">
-                            <img src="immagini/flip.png" class="img-responsive" style="width:4vw; border:none;" alt="refresh" />
+                        <a data-toggle="tooltip" data-placement="top" title="Click per cambiare visuale"
+                            onClick="flipPonte();">
+                            <img src="immagini/flip.png" class="img-responsive" style="width:4vw; border:none;"
+                                alt="refresh" />
                         </a>
                     </div>
                 </div>
@@ -181,165 +189,184 @@
                     <li>🟢 Valore conforme.</li>
                     <li>🟡 Valore anomalo: strain inferiore ai valori previsti.</li>
                     <li>🔴 Valore anomalo: strain superiore ai valori previsti</li>
-                    <li>⬇️ Direzione acqua torrente.</li>
-                 </ul>
+                    <li>⬇️⬆️ Direzione acqua torrente.</li>
+                </ul>
 
-                  <div class="row">
+                <div class="row">
                     <div class="col-lg-6">
                         <h4 style="margin-top:15px;">Fingerprint</h4>
-                        <p>Seleziona una misura passata come riferimento; verrà caricata la misura temporalmente più vicina.</p>
+                        <p>Seleziona una misura passata come riferimento; verrà caricata la misura temporalmente più
+                            vicina.</p>
                         <input id="datetime-fingerprint" class="form-control bg-white datepicker"
                             placeholder="Seleziona fingerprint...">
-                            <script>
-                                flatpickr('#datetime-fingerprint', {
-                                    //mode:"range",
-                                    dateFormat: "Y/m/d H:i",
-                                    enableTime: true,
-                                    time_24hr: true,
-                                    defaultDate: '2023/11/29 22:00',
-                                    minuteIncrement: 30,
-                                    onClose: function (dataObj, dataStr) {
-                                        var timestamp_ms = new Date(dataStr).getTime()
-                                        console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
-                                        document.getElementById("FingerprintSelected").innerHTML = 'Misura selezionata: ' + dataObj
-                                    },
-                                });
-                            </script>
+                        <script>
+                            flatpickr('#datetime-fingerprint', {
+                                //mode:"range",
+                                dateFormat: "Y/m/d H:i",
+                                enableTime: true,
+                                time_24hr: true,
+                                defaultDate: '2023/11/29 22:00',
+                                minuteIncrement: 30,
+                                onClose: function (dataObj, dataStr) {
+                                    var timestamp_ms = new Date(dataStr).getTime()
+                                    console.info('data fingerprint: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
+                                    document.getElementById("FingerprintSelected").innerHTML = 'Misura selezionata: ' + dataObj
+                                },
+                            });
+                        </script>
 
-                            <div id="FingerprintSelected" style="text-align: center;">
-                                ..seleziona un fingerprint..
+                        <div id="FingerprintSelected" style="text-align: center;">
+                            ..seleziona un fingerprint..
+                        </div>
+                        <div style="margin-top: 2em; text-align: center;">
+                            <div style="margin-right: 2em; display:inline;">
+                                <a data-toggle="tooltip" data-placement="top" title="Ripristina default fingerprint"
+                                    onClick="TODO();"><button class="btn btn-primary" style="min-height: 40px;"><span
+                                            class="glyphicon glyphicon-refresh"></span></button></a>
                             </div>
+                            <div style="display:inline;">
+                                <a data-toggle="tooltip" data-placement="top" title="Salva come default"
+                                    onClick="TODO();"><button class="btn btn-primary" style="min-height: 40px;"><span
+                                            class="bi bi-floppy"></span></button></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <h4 style="margin-top:15px;">Meteo attuale</h4>
                         <div id="Meteo">
-                            <iframe src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/363/ffffff/808080/5e5e5e/ffffff/it" width=187 height=240 frameborder="0"></iframe><br/>
+                            <iframe
+                                src="https://www.3bmeteo.com/moduli_esterni/localita_1_giorno_compatto/363/ffffff/808080/5e5e5e/ffffff/it"
+                                width=187 height=240 frameborder="0"></iframe><br />
                         </div>
                     </div>
-                  </div>
-                  
+                </div>
+
             </div>
         </div>
         <div class="row">
             <div class="col-lg-9">
                 <h4>Trend storici</h4>
-                <p>Seleziona un PDI dall'immagine del ponte per aggiornare i grafici sotto. Seleziona una data per cambiare l'intervallo temporale visualizzato.</p>
+                <p>Seleziona un PDI dall'immagine del ponte per aggiornare i grafici sotto. Seleziona una data per
+                    cambiare l'intervallo temporale visualizzato.</p>
                 <input id="datetime-plot" class="form-control bg-white datepicker"
                     placeholder="Seleziona un timestamp...">
-                    <script>
-                        flatpickr('#datetime-plot', {
-                            //mode:"range",
-                            dateFormat: "Y/m/d H:i",
-                            enableTime: true,
-                            time_24hr: true,
-                            defaultDate: '2023/11/29 22:00',
-                            minuteIncrement: 30,
-                            onClose: function (dataObj, dataStr) {
-                                var timestamp_ms = new Date(dataStr).getTime()
-                                console.info('data plot: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
-                            },
-                        });
-                    </script>
+                <script>
+                    flatpickr('#datetime-plot', {
+                        //mode:"range",
+                        dateFormat: "Y/m/d H:i",
+                        enableTime: true,
+                        time_24hr: true,
+                        defaultDate: '2023/11/29 22:00',
+                        minuteIncrement: 30,
+                        onClose: function (dataObj, dataStr) {
+                            var timestamp_ms = new Date(dataStr).getTime()
+                            console.info('data plot: ' + dataObj + ' - Unixtime (ms): ' + timestamp_ms)
+                        },
+                    });
+                </script>
                 <p style="margin-top:15px;">
-                    <img id='dummy_plot_1' class="img-responsive" src="immagini/dummy_plot.png" style="width: 100%;" alt="dummy_plot_1" />
-                    <img id='dummy_plot_2' class="img-responsive" src="immagini/dummy_plot.png" style="width: 100%;" alt="dummy_plot_2" />
+                    <img id='dummy_plot_1' class="img-responsive" src="immagini/dummy_plot.png" style="width: 100%;"
+                        alt="dummy_plot_1" />
+                    <img id='dummy_plot_2' class="img-responsive" src="immagini/dummy_plot.png" style="width: 100%;"
+                        alt="dummy_plot_2" />
                 </p>
             </div>
             <div class="col-md-3">
                 <h4>Lista eventi</h4>
                 <p>Seleziona un PDI dall'immagine del ponte per filtrare la tabella.</p>
                 <div class="table-wrapper">
-                <table class="table table-sm">
-                    <thead>
-                        <tr>
-                            <th scope="col">Timestamp</th>
-                            <th scope="col">PDI</th>
-                            <th scope="col">Strain (με)</th>
-                            <th scope="col">Temp (°C)</th>
-                            <th scope="col">Prediction</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td scope="row">2024-08-10 10:34</th>
-                        <td>1DI_b</td>
-                        <td>123</td>
-                        <td>34</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>4.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>5.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                        <tr>
-                        <td scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>3.14</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Timestamp</th>
+                                <th scope="col">PDI</th>
+                                <th scope="col">Strain (με)</th>
+                                <th scope="col">Temp (°C)</th>
+                                <th scope="col">Prediction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row">2024-08-10 10:34</th>
+                                <td>1DI_b</td>
+                                <td>123</td>
+                                <td>34</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>4.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>5.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>3.14</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <p><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Rimuovi filtro</button></p>
+                <p><button class="btn btn-primary"><span class="glyphicon glyphicon-refresh"></span> Rimuovi
+                        filtro</button></p>
             </div>
         </div>
     </div>
@@ -384,7 +411,7 @@
             a.setAttribute('data-trigger', 'hover');
             a.setAttribute('data-html', "true");
             if (PDI.left[position_index] >= 50) {
-                a.setAttribute('data-placement','left');
+                a.setAttribute('data-placement', 'left');
             }
 
             div.appendChild(a);
@@ -427,5 +454,5 @@
 
     </script>
 </body>
- 
+
 </html>
